@@ -4,7 +4,7 @@
 
 DOCKER = docker
 REPO   = topochan
-NAME   = zookeeper-consul
+NAME   = docker-zookeeper
 
 TAG = 3.4.6
 
