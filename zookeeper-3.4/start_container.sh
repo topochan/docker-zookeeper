@@ -4,7 +4,7 @@
 #Launch a ZK container that registers and configures an ensemble
 # using consul and consul template
 
-DOCKER_IMAGE=${DOCKER_IMAGE:-"asteris/zookeeper:latest"}
+DOCKER_IMAGE=${DOCKER_IMAGE:-"topochan/zookeeper-consul:latest"}
 
 #Run a single zk container 
 PORTS=" -p 2181:2181 -p 2888:2888 -p 3888:3888 "

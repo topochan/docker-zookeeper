@@ -3,8 +3,8 @@
 # REPO=mycompany NAME=zk TAG=test make -e tag
 
 DOCKER = docker
-REPO   = asteris
-NAME   = zookeeper
+REPO   = topochan
+NAME   = zookeeper-consul
 
 TAG = 3.4.6
 

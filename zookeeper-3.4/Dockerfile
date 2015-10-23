@@ -1,6 +1,6 @@
-FROM asteris/consul-template:latest
+FROM ciscocloud/consul-template
 
-MAINTAINER Steven Borrelli <steve@aster.is>
+MAINTAINER Miguel Angel Guillen <miguitas@gmail.com>
 
 ENV ZOOKEEPER_VERSION 3.4.6
 ENV ZK_DATA_DIR /var/lib/zookeeper

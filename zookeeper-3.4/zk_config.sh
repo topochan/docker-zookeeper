@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Configure a zookeeper ensemble using consul-template
 # to populate server lists
 
@@ -16,7 +15,6 @@ export ZK_HOME=${ZK_HOME:-/opt/zookeeper}
 #ZK super user
 ZK_SUPER_USER=${ZK_SUPER_USER:-super}
 ZK_SUPER_PW=${ZK_SUPER_PW:-}
-
 
 #Consul server
 CONSUL_CONNECT=${CONSUL_CONNECT:-"consul:8500"}
@@ -45,6 +43,10 @@ else
   CONSUL_QUERY="${CONSUL_TAG}.${CONSUL_SERVICE}" 
 fi
 
-${CONSUL_TEMPLATE} -consul ${CONSUL_CONNECT} \
+if [ -f ${ZK_HOME}/conf/zoo.env ]; then
+  rm ${ZK_HOME}/conf/zoo.env
+fi 
+
+exec ${CONSUL_TEMPLATE} -consul ${CONSUL_CONNECT} \
                    -wait ${CONSUL_MINWAIT}:${CONSUL_MAXWAIT} \
                    $args -template ${TEMPLATE_DIR}/zoo.env.tmpl:${ZK_HOME}/conf/zoo.env:${RESTART_COMMAND} $@ 
